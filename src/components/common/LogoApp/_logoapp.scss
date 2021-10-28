@@ -1,0 +1,15 @@
+.logo-app-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & span.app-text {
+    font-family: FSAlbertBold;
+    font-size: 1.1rem;
+    margin-top: 4px;
+  }
+}
+
+.app-header .navbar-brand {
+  width: 195px;
+}
