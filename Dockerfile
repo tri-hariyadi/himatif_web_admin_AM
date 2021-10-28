@@ -8,7 +8,7 @@ RUN npm run build
 
 #FROM mhart/alpine-node
 FROM node:14.0.0
-RUN npm install yarn -g
+# RUN npm install yarn -g
 RUN yarn global add serve
 WORKDIR /app
 COPY --from=builder /app/build .
