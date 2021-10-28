@@ -20,7 +20,6 @@ packge-lock.json# See https://help.github.com/ignore-files/ for more about ignor
 
 #docker
 .dockerignore
-docker-compose.yaml
 
 npm-debug.log*
 yarn-debug.log*
