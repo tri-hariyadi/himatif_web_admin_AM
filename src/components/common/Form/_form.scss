@@ -8,6 +8,27 @@ input.text-field {
   margin-left: .2rem;
 }
 
+.toggle-pass {
+  position: absolute;
+  right: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all .1s ease-in;
+  color: #5c6873;
+
+  &:active {
+    transform: translateY(-2.5px);
+  }
+}
+
+input.is-valid+.toggle-pass {
+  right: 50px;
+}
+
+input.is-invalid+.toggle-pass {
+  right: 50px;
+}
+
 //Checkbox
 @keyframes click-wave {
   0% {

@@ -24,32 +24,43 @@ const TextField = ({
   style,
   onKeyDown,
   disabled,
-  format
+  format,
+  secureTextEntry
 }) => {
+  const [secure, setSecure] = React.useState(secureTextEntry);
   return (
     <FormGroup>
       {label && <Label style={hideLabel ? { visibility: 'hidden' } : {}} for={id} className='text-filed-label'>{label}</Label>}
-      <Input
-        type={type}
-        name={name}
-        id={id}
-        disabled={disabled}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        valid={!errors[name] && values[name] ? true : false}
-        invalid={touched[name] && !!errors[name] ? true : false}
-        required={required}
-        minLength={minLength}
-        maxLength={maxLength}
-        onChange={(e) => {
-          handleChange(e);
-          if (eventChange) eventChange(e);
-        }}
-        onBlur={handleBlur}
-        onKeyDown={onKeyDown}
-        value={!textTransform ? `${values[name].charAt(0).toUpperCase()}${values[name].slice(1)}` : format ? format(values[name]) : values[name]}
-        style={Object.assign({}, textTransform ? { textTransform: textTransform } : {}, style)}
-        className='text-field' />
+      <div className='d-flex flex-row align-items-center m-0'>
+        <Input
+          type={type}
+          name={name}
+          id={id}
+          disabled={disabled}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          valid={!errors[name] && values[name] ? true : false}
+          invalid={touched[name] && !!errors[name] ? true : false}
+          required={required}
+          minLength={minLength}
+          maxLength={maxLength}
+          onChange={(e) => {
+            handleChange(e);
+            if (eventChange) eventChange(e);
+          }}
+          onBlur={handleBlur}
+          onKeyDown={onKeyDown}
+          value={!textTransform ? `${values[name].charAt(0).toUpperCase()}${values[name].slice(1)}` : format ? format(values[name]) : values[name]}
+          style={Object.assign({}, textTransform ? { textTransform: textTransform } : {}, style)}
+          className='text-field' />
+        {secureTextEntry && <i
+          className={[secure ? 'fa fa-eye-slash' : 'fa fa-eye', 'toggle-pass'].join(' ')}
+          onClick={() => {
+            setSecure(v => !v)
+            const x = document.getElementById('password');
+            x.type = x.type === 'password' ? 'text' : 'password';
+          }} />}
+      </div>
       <FormFeedback>{errors[name]}</FormFeedback>
     </FormGroup>
   )

@@ -12809,6 +12809,22 @@ input.text-field {
 .text-filed-label {
   margin-left: .2rem; }
 
+.toggle-pass {
+  position: absolute;
+  right: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all .1s ease-in;
+  color: #5c6873; }
+  .toggle-pass:active {
+    transform: translateY(-2.5px); }
+
+input.is-valid + .toggle-pass {
+  right: 50px; }
+
+input.is-invalid + .toggle-pass {
+  right: 50px; }
+
 @keyframes click-wave {
   0% {
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5); }

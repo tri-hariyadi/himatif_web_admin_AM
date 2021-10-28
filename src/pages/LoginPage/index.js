@@ -18,8 +18,8 @@ const LoginPage = ({
   loginUser
 }) => {
   const initialValues = React.useRef({
-    email: 'bocah@gmail.com',
-    password: 'bimo123123',
+    email: '',
+    password: '',
     accept: false
   });
   const history = useHistory();
@@ -88,6 +88,7 @@ const LoginPage = ({
                         {...props}
                         type='password'
                         name='password'
+                        secureTextEntry
                         id='password'
                         placeholder='Password'
                         autoComplete='new-password'
