@@ -12,7 +12,7 @@ FROM node:14.0.0
 RUN yarn global add serve
 WORKDIR /app
 COPY --from=builder /app/build .
-EXPOSE 5002
+EXPOSE 3006
 CMD ["serve", "-p", "3006", "-s", "."]
 #CMD ["serve", "-s", "."]
 
