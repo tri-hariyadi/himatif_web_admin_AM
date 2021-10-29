@@ -58,7 +58,8 @@ instanceAuth.interceptors.response.use(
               reject();
             } else {
               const payload = window.localStorage.getItem('accessToken');
-              payload ? window.localStorage.setItem('accessToken', data.result.newAccessToken) : window.sessionStorage.setItem('accessToken', data.result.newAccessToken);
+              if (payload) window.localStorage.setItem('accessToken', data.result.newAccessToken);
+              else window.sessionStorage.setItem('accessToken', data.result.newAccessToken);
               instanceAuth.defaults.headers.common['Authorization'] = `Bearer ${data.result.newAccessToken}`;
               originalRequest.headers['Authorization'] = `Bearer ${data.result.newAccessToken}`;
               processQueue(null, data.result.newAccessToken);
@@ -92,15 +93,14 @@ instanceAuth.interceptors.response.use(
     const status = error.response ? error.response.status : null;
     if ((status === 401 || status === 403) && !originalRequest._retry && !(error.config.url.includes('refreshtoken'))) {
       if (isRefreshing) {
-        try {
-          const token = await new Promise((resolve, reject) => {
-            failedQueue.push({ resolve, reject });
-          });
+        return new Promise((resolve, reject) => {
+          failedQueue.push({ resolve, reject })
+        }).then(token => {
           originalRequest.headers['Authorization'] = `Bearer ${token}`;
-          return await instanceAuth(originalRequest);
-        } catch (err) {
-          return await Promise.reject(err);
-        }
+          return instanceAuth(originalRequest);
+        }).catch(err => {
+          return Promise.reject(err);
+        })
       }
 
       originalRequest._retry = true;
@@ -114,7 +114,8 @@ instanceAuth.interceptors.response.use(
               reject();
             } else {
               const payload = window.localStorage.getItem('accessToken');
-              payload ? window.localStorage.setItem('accessToken', data.result.newAccessToken) : window.sessionStorage.setItem('accessToken', data.result.newAccessToken);
+              if (payload) window.localStorage.setItem('accessToken', data.result.newAccessToken);
+              else window.sessionStorage.setItem('accessToken', data.result.newAccessToken);
               instanceAuth.defaults.headers.common['Authorization'] = `Bearer ${data.result.newAccessToken}`;
               originalRequest.headers['Authorization'] = `Bearer ${data.result.newAccessToken}`;
               processQueue(null, data.result.newAccessToken);

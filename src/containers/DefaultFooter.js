@@ -23,7 +23,7 @@ class DefaultFooter extends Component {
         </span>
         <span className="ml-auto">Powered by <span
           className='text-primary'
-          style={{ fontSize: '1rem' }}>Tri Hariyadi</span></span>
+          style={{ fontSize: '1rem' }}>Litbang - Himatif</span></span>
       </React.Fragment>
     );
   }
