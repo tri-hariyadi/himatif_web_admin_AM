@@ -31,7 +31,7 @@ const TextField = ({
   return (
     <FormGroup>
       {label && <Label style={hideLabel ? { visibility: 'hidden' } : {}} for={id} className='text-filed-label'>{label}</Label>}
-      <div className='d-flex flex-row align-items-center m-0'>
+      <div >
         <Input
           type={type}
           name={name}
@@ -60,8 +60,8 @@ const TextField = ({
             const x = document.getElementById('password');
             x.type = x.type === 'password' ? 'text' : 'password';
           }} />}
+        <FormFeedback>{errors[name]}</FormFeedback>
       </div>
-      <FormFeedback>{errors[name]}</FormFeedback>
     </FormGroup>
   )
 }

@@ -24,6 +24,7 @@ const AddUser = ({
     birthPlace: '',
     address: '',
     organisation: '',
+    class: ''
   });
 
   React.useEffect(() => {
