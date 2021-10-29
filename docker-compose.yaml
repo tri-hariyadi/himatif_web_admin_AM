@@ -1,8 +1,8 @@
 version: '3.7'
 
 services: 
-  app-web-car:
-    image: app-web-absensi-mobile:1.0
+  web-absensi-mobile:
+    image: app-web-absensi-mobile
     container_name: web-absensi-mobile
     build:
       context: .

@@ -44,7 +44,7 @@ const AddDataKasTransaction = React.forwardRef((props, ref) => {
         if (allFiles.length === files.length) {
           setImageState(allFiles[0].base64);
           props.setFieldTouched('fileType', true);
-          props.setFieldValue('fileType', allFiles[0].type);
+          props.setFieldValue('fileType', allFiles[0].type, true);
           props.setFieldValue('fileProofPayment', allFiles[0].file);
         }
       }
@@ -184,4 +184,4 @@ const AddDataKasTransaction = React.forwardRef((props, ref) => {
   )
 })
 
-export default AddDataKasTransaction
+export default AddDataKasTransaction;
