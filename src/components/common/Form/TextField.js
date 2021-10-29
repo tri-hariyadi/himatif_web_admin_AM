@@ -31,7 +31,7 @@ const TextField = ({
   return (
     <FormGroup>
       {label && <Label style={hideLabel ? { visibility: 'hidden' } : {}} for={id} className='text-filed-label'>{label}</Label>}
-      <div >
+      <div style={{ position: 'relative' }}>
         <Input
           type={type}
           name={name}
