@@ -56,7 +56,7 @@ const TableUser = React.memo(({
         <img
           src={row.image ? row.image : NullPhoto}
           alt='img-absent'
-          className='img-fluid'
+          className='img-fluid img-user'
           style={{ width: 60, height: 60 }}
           onError={(e) => { e.target.onerror = null; e.target.src = NullPhoto }}
         />

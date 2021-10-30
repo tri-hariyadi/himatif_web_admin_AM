@@ -12049,6 +12049,10 @@ button.btn {
   background-color: #EEF2F5;
   border-color: #EEF2F5; }
 
+.img-user {
+  object-fit: cover;
+  border-radius: 50%; }
+
 .swal-modal {
   border-radius: 15px; }
 

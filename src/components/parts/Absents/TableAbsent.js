@@ -50,12 +50,12 @@ const TableAbsent = ({
 
   const imageFormatter = (cell, row) => (
     <div className='p-1'>
-      <Zoom zoomMargin={40}>
+      <Zoom zoomMargin={20}>
         <img
           src={row.imageOut ? row.imageOut : row.imageIn ? row.imageIn : NullPhoto}
           alt='img-absent'
-          className='img-fluid'
-          style={{ width: 60, height: 60 }}
+          className='img-fluid img-user'
+          style={{ width: 100, height: 100 }}
           onError={(e) => { e.target.onerror = null; e.target.src = NullPhoto }}
         />
       </Zoom>
